@@ -1,15 +1,16 @@
-var cacheName = 'pwd-0.0.1';
+var cacheVersion = '0.0.9';
 var filesToCache = [
     '/',
     '/index.html',
     '/scripts/app.js',
-    '/styles/app.css'
+    '/styles/app.css',
+    'https://fonts.googleapis.com/css?family=Share+Tech+Mono'
 ];
 
 self.addEventListener('install', function (e) {
     console.log('[ServiceWorker] Install');
     e.waitUntil(
-        caches.open(cacheName).then(function (cache) {
+        caches.open(cacheVersion).then(function (cache) {
             console.log('[ServiceWorker] Caching app shell');
             return cache.addAll(filesToCache);
         })
@@ -21,7 +22,7 @@ self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function (keyList) {
             return Promise.all(keyList.map(function (key) {
-                if (key !== cacheName && key !== dataCacheName) {
+                if (key !== cacheVersion) {
                     console.log('[ServiceWorker] Removing old cache', key);
                     return caches.delete(key);
                 }
