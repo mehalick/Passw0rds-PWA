@@ -6,7 +6,7 @@ html, body {
     padding: 0;
     margin: 0;
     height: 100%;
-    width: 100%;  
+    width: 100%;
 }
 
 html {
@@ -31,7 +31,7 @@ body, main, input {
 
 main {
     display: inline-block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 table {
@@ -62,7 +62,7 @@ th:first-child {
     text-align: center;
 }
 
-input {   
+input {
     width: 100%;
     margin: 0;
     padding: 0;
