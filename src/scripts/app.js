@@ -6,6 +6,7 @@
         container: document.getElementById('container'),
         spinner: document.getElementById('loader'),
         passwords: document.getElementById('passwords'),
+        copied: document.getElementById('copied'),
         refresh: document.getElementById('refresh'),
         lengths: [6, 8, 10, 12, 14, 16, 18, 20, 30, 40, 50, 60]
     };
@@ -46,6 +47,12 @@
     app.copyPassword = function () {
         this.select();
         document.execCommand('copy');
+        app.copied.classList.remove('hidden');
+
+        window.setTimeout(() => {
+            app.copied.classList.add('hidden');
+
+        }, 2000);
     }
 
     app.getInput = function (password) {
@@ -87,8 +94,11 @@
             else {
                 var td = document.createElement("td");
                 td.colSpan = 2;
-                td.classList.add('small');
-                td.appendChild(app.getInput(app.getAlphaNumericPassword(app.lengths[i])));
+                
+                var input = app.getInput(app.getAlphaNumericPassword(app.lengths[i]));
+                input.classList.add('small');
+                
+                td.appendChild(input);
                 row.appendChild(td);
             }
         }

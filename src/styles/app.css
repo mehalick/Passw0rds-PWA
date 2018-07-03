@@ -14,27 +14,40 @@ html {
     font-size: 62.5%;
 }
 
-body {
-    margin: 15px;
-    text-align: center;
-}
-
 body, main, input {
     font-family: "Share Tech Mono", monospace;
     font-weight: 400;
     font-display: optional;
-    font-size: 2rem;
+    font-size: 1.1rem;
     color: #444;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 main {
-    display: inline-block;
     margin: 0 auto;
+    max-width: 768px;
+}
+
+footer {
+    display: flex;
+    margin: 12px;
+    justify-content: flex-end;
+}
+
+footer div {
+    display: block;
+    margin: 0;
+    padding: 4px 8px;
+    border-right: 1px solid #e1e2e1;
+}
+
+footer div:last-child {
+    border-right: none;
 }
 
 table {
+    width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     border-top: 12px solid #b0003a;
@@ -67,35 +80,15 @@ input {
     margin: 0;
     padding: 0;
     border: none;
+    cursor: pointer;
 }
 
 input:focus {
     outline: none;
 }
 
-.small input {
-    font-size: 1.4rem;
-}
-
-ul {
-    float: right;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-li {
-    display: block;
-    float: left;
-    position: relative;
-    padding: 2px;
-    font-size: 1.2rem;
-}
-
-li + li:before {
-    padding: 0 2px 0 0;
-    color: #e1e2e1;
-    content: "|";
+small, .small {
+    font-size: 0.9rem !important;
 }
 
 a {
@@ -107,26 +100,26 @@ a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+#copied {
+    color: #99aa00;
+}
+
+@media (min-width: 768px) {
 
     body {
-        margin: 0;
+        margin: 15px;
     }
 
     body, main, input {
-        font-size: 1.1rem;
+        font-size: 2.0rem;
     }
 
-    main, table {
-        width: 100%;
+    footer {
+        margin: 12px -8px;
     }
 
-    ul {
-        padding: 12px;
-    }
-
-    .small input {
-        font-size: 0.9rem;
+    .small {
+        font-size: 1.4rem !important;
     }
 }
 
@@ -210,4 +203,10 @@ a:hover {
         -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
     }
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
 }
