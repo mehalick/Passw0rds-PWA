@@ -1,4 +1,4 @@
-var cacheVersion = '0.1.0';
+var cacheVersion = '201807181626';
 var filesToCache = [
     '/',
     '/index.html',
